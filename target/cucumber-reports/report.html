@@ -1,0 +1,1235 @@
+
+<!DOCTYPE html>
+<html>
+
+
+<head>
+	<meta charset='UTF-8' /> 
+	<meta name='description' content='' />
+	<meta name='robots' content='noodp, noydir' />
+	<meta name='viewport' content='width=device-width, initial-scale=1' />
+	<meta id="timeStampFormat" name="timeStampFormat" content='MMM d, yyyy hh:mm:ss a'/>
+	
+	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' rel='stylesheet' type='text/css'>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+		<link href='https://cdn.rawgit.com/anshooarora/extentreports-java/b4a58fcfd1e137bd9287244035a7c80d3d73b3af/dist/css/extent.css' type='text/css' rel='stylesheet' />
+	
+	<title>BBC Assignment Project</title>
+
+	<style type='text/css'>
+			
+      
+        
+      
+    
+	</style>
+</head>
+
+	<body class='extent standard default hide-overflow bdd-report'>
+		<div id='theme-selector' alt='Click to toggle theme. To enable by default, use theme configuration.' title='Click to toggle theme. To enable by default, use theme configuration.'>
+			<span><i class='material-icons'>desktop_windows</i></span>
+		</div>
+
+<nav>
+	<div class="nav-wrapper">
+		<a href="#!" class="brand-logo blue darken-3">Extent</a>
+
+		<!-- slideout menu -->
+		<ul id='slide-out' class='side-nav fixed hide-on-med-and-down'>
+			<li class='waves-effect active'><a href='#!' view='test-view' onclick="configureView(0);chartsView('test');"><i class='material-icons'>dashboard</i></a></li>
+						<li class='waves-effect'><a href='#!' view='category-view' onclick="configureView(1)"><i class='material-icons'>label_outline</i></a></li>
+			<li class='waves-effect'><a href='#!' view='exception-view' onclick="configureView(2)"><i class='material-icons'>bug_report</i></a></li>
+			<li class='waves-effect'><a href='#!' onclick="configureView(-1);chartsView('dashboard');" view='dashboard-view'><i class='material-icons'>track_changes</i></i></a></li>
+		</ul>
+
+		<!-- report name -->
+		<span class='report-name'>API Testing report</span>
+		
+		<!-- report headline -->
+		<span class='report-headline'></span>
+
+		<!-- nav-right -->
+		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
+			<li>
+                <a href='#!'>
+                    <span class='label suite-start-time blue darken-3'>Oct 24, 2019 09:51:28 AM</span>
+				</a>
+			</li>
+			<li>
+                <a href='#!'>
+                    <span class='label blue darken-3'>3.1.2</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+</nav>
+
+		<!-- container -->
+		<div class='container'>
+
+<div id='test-view' class='view'>
+				
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- test toggle -->
+			<div class='chip transparent'>
+				<a class='dropdown-button tests-toggle' data-activates='tests-toggle' data-constrainwidth='true' data-beloworigin='true' data-hover='true' href='#'>
+					<i class='material-icons'>warning</i> Status
+				</a>
+				<ul id='tests-toggle' class='dropdown-content'>
+											<li status='pass'><a href='#!'>Pass <i class='material-icons green-text'>check_circle</i></a></li>
+						<li status='fail'><a href='#!'>Fail <i class='material-icons red-text'>cancel</i></a></li>
+						<li status='skip'><a href='#!'>Skip <i class='material-icons cyan-text'>redo</i></a></li>
+					<li class='divider'></li>
+					<li status='clear' clear='true'><a href='#!'>Clear Filters <i class='material-icons'>clear</i></a></li>
+				</ul>
+			</div>
+			<!-- test toggle -->
+
+			<!-- category toggle -->
+			<div class='chip transparent'>
+				<a class='dropdown-button category-toggle' data-activates='category-toggle' data-constrainwidth='false' data-beloworigin='true' data-hover='true' href='#'>
+					<i class='material-icons'>local_offer</i> Category
+				</a>
+				<ul id='category-toggle' class='dropdown-content'>
+					<li><a href='#'>@apiTesting</a></li>
+					<li><a href='#'>@automated</a></li>
+					<li><a href='#'>@manual</a></li>
+					<li class='divider'></li>
+					<li class='clear'><a href='#!' clear='true'>Clear Filters</a></li>
+				</ul>
+			</div>
+			<!-- category toggle -->
+
+			<!-- clear filters -->
+			<div class='chip transparent hide'>
+				<a class='' id='clear-filters' alt='Clear Filters' title='Clear Filters'>
+					<i class='material-icons'>close</i> Clear
+				</a>
+			</div>
+			<!-- clear filters -->
+
+			<!-- enable dashboard -->
+			<div id='toggle-test-view-charts' class='chip transparent'>
+				<a class='pink-text' id='enable-dashboard' alt='Enable Dashboard' title='Enable Dashboard'>
+					<i class='material-icons'>track_changes</i> Dashboard
+				</a>
+			</div>
+			<!-- enable dashboard -->
+
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+					<i class='material-icons'>search</i> Search
+				</a>
+
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+				
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+
+
+<div id='test-view-charts' class='subview-full'>
+	<div id='charts-row' class='row nm-v nm-h'>
+		<div class='col s12 m4 l4 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Features</div>
+				<div class='chart-box'>
+					<canvas id='parent-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span class='tooltipped' data-position='top' data-tooltip='0%'><span class='strong'>0</span> feature(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong tooltipped' data-position='top' data-tooltip='100%'>1</span> feature(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+				</div>
+			</div>
+		</div>
+		
+		<div class='col s12 m4 l4 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Scenarios</div>
+				<div class='chart-box'>
+					<canvas id='child-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span class='tooltipped' data-position='top' data-tooltip='61.538%'><span class='strong'>8</span> scenario(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong tooltipped' data-position='top' data-tooltip='38.462%'>5</span> scenario(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+				</div>
+			</div>
+		</div>
+		
+		<div class='col s12 m4 l4 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Steps</div>
+				<div class='chart-box'>
+					<canvas id='grandchild-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span class='tooltipped' data-position='top' data-tooltip='76.786%'><span class='strong'>43</span> step(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong tooltipped' data-position='top' data-tooltip='8.929%'>5</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='14.286%'>8</span> others
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+	<div class='subview-left left'>
+		
+		<div class='view-summary'>
+			<h5>Features</h5>
+			<ul id='test-collection' class='test-collection'>
+				
+				
+				<li class='test displayed active has-leaf fail' status='fail' bdd='true' test-id='1'>
+					<div class='test-heading'>
+						<span class='test-name'>MetaWeather API Testing</span>
+						<span class='test-time'>Oct 24, 2019 09:51:28 AM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='scenario node' test-id='2' status='fail'>
+	<div class='category-list'>
+		<span class='category label white-text'>@automated</span>
+	</div>
+	<span class='duration right label'>0h 0m 3s+507ms</span>
+	<div class='desc'>
+		<b>Scenario</b>
+		<span class="desc-text">01-To verify the weather forcast for London for today</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='3' class='node given pass' status='pass'>
+			
+			<b>Given</b>
+			
+			<span class="bdd-step-name">Given I'm using the MetaWeather API</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='4' class='node when pass' status='pass'>
+			
+			<b>When</b>
+			
+			<span class="bdd-step-name">When I make a GET request to "/api/location/44418/"</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='5' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I verify the response code of 200</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='6' class='node when pass' status='pass'>
+			
+			<b>When</b>
+			
+			<span class="bdd-step-name">When I generate the weather forcast Dictionary</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='7' class='node then fail' status='fail'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I verify the expected weather "Showers" for the Day "Today"</span>
+				<div class='pre'><textarea>org.junit.ComparisonFailure: Expected Weather Forcast is matching with the actual forcast expected:<[Showers]> but was:<[Heavy Rain]>
+	at org.junit.Assert.assertEquals(Assert.java:115)
+	at StepDefinitions.WeatherStepDefs.i_verify_the_expected_weather_for_the_Day(WeatherStepDefs.java:97)
+	at ✽.Then I verify the expected weather "Showers" for the Day "Today"(Weather.feature:10)
+</textarea></div>
+			
+		</li>
+	</ul>
+</div>
+<div class='scenariooutline node' test-id='8' status='fail'>
+	<span class='duration right label'>0h 0m 2s+627ms</span>
+	<div class='desc'>
+		<b>ScenarioOutline</b>
+		<span class="desc-text">02-To verify the weather forcast for next few days for London</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='9' class='node scenario fail' status='fail'>
+			<div class='category-list'>
+				<span class='category label white-text'>@apiTesting</span>
+				<span class='category label white-text'>@automated</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">02-To verify the weather forcast for next few days for London</span>
+			
+				<ul class='steps'>
+					<li test-id='10' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given I'm using the MetaWeather API</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='11' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When I make a GET request to "/api/location/44418/"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='12' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I verify the response code of 200</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='13' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When I generate the weather forcast Dictionary</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='14' class='node then fail' status='fail'><b>Then</b>
+						<span class="bdd-step-name">Then I verify the expected weather "Heavy Cloud" for the Day "Today"</span>
+							<div class='pre'><textarea>org.junit.ComparisonFailure: Expected Weather Forcast is matching with the actual forcast expected:<Heavy [Cloud]> but was:<Heavy [Rain]>
+	at org.junit.Assert.assertEquals(Assert.java:115)
+	at StepDefinitions.WeatherStepDefs.i_verify_the_expected_weather_for_the_Day(WeatherStepDefs.java:97)
+	at ✽.Then I verify the expected weather "Heavy Cloud" for the Day "Today"(Weather.feature:18)
+</textarea></div>
+					</li>
+				</ul>
+		</li>
+		<li test-id='15' class='node scenario fail' status='fail'>
+			<div class='category-list'>
+				<span class='category label white-text'>@apiTesting</span>
+				<span class='category label white-text'>@automated</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">02-To verify the weather forcast for next few days for London</span>
+			
+				<ul class='steps'>
+					<li test-id='16' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given I'm using the MetaWeather API</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='17' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When I make a GET request to "/api/location/44418/"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='18' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I verify the response code of 200</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='19' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When I generate the weather forcast Dictionary</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='20' class='node then fail' status='fail'><b>Then</b>
+						<span class="bdd-step-name">Then I verify the expected weather "Showers" for the Day "Tomorrow"</span>
+							<div class='pre'><textarea>org.junit.ComparisonFailure: Expected Weather Forcast is matching with the actual forcast expected:<[Showers]> but was:<[ Light Rain]>
+	at org.junit.Assert.assertEquals(Assert.java:115)
+	at StepDefinitions.WeatherStepDefs.i_verify_the_expected_weather_for_the_Day(WeatherStepDefs.java:97)
+	at ✽.Then I verify the expected weather "Showers" for the Day "Tomorrow"(Weather.feature:18)
+</textarea></div>
+					</li>
+				</ul>
+		</li>
+		<li test-id='21' class='node scenario fail' status='fail'>
+			<div class='category-list'>
+				<span class='category label white-text'>@apiTesting</span>
+				<span class='category label white-text'>@automated</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">02-To verify the weather forcast for next few days for London</span>
+			
+				<ul class='steps'>
+					<li test-id='22' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given I'm using the MetaWeather API</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='23' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When I make a GET request to "/api/location/44418/"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='24' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I verify the response code of 200</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='25' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When I generate the weather forcast Dictionary</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='26' class='node then fail' status='fail'><b>Then</b>
+						<span class="bdd-step-name">Then I verify the expected weather "Clear" for the Day "Tomorrow+1"</span>
+							<div class='pre'><textarea>org.junit.ComparisonFailure: Expected Weather Forcast is matching with the actual forcast expected:<[Clear]> but was:<[ Light Rain]>
+	at org.junit.Assert.assertEquals(Assert.java:115)
+	at StepDefinitions.WeatherStepDefs.i_verify_the_expected_weather_for_the_Day(WeatherStepDefs.java:97)
+	at ✽.Then I verify the expected weather "Clear" for the Day "Tomorrow+1"(Weather.feature:18)
+</textarea></div>
+					</li>
+				</ul>
+		</li>
+		<li test-id='27' class='node scenario fail' status='fail'>
+			<div class='category-list'>
+				<span class='category label white-text'>@apiTesting</span>
+				<span class='category label white-text'>@automated</span>
+			</div>
+			
+			<b>Scenario</b>
+			
+			<span class="bdd-step-name">02-To verify the weather forcast for next few days for London</span>
+			
+				<ul class='steps'>
+					<li test-id='28' class='node given pass' status='pass'><b>Given</b>
+						<span class="bdd-step-name">Given I'm using the MetaWeather API</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='29' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When I make a GET request to "/api/location/44418/"</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='30' class='node then pass' status='pass'><b>Then</b>
+						<span class="bdd-step-name">Then I verify the response code of 200</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='31' class='node when pass' status='pass'><b>When</b>
+						<span class="bdd-step-name">When I generate the weather forcast Dictionary</span>
+							<div class='pre'>passed</div>
+					</li>
+					<li test-id='32' class='node then fail' status='fail'><b>Then</b>
+						<span class="bdd-step-name">Then I verify the expected weather "Light Cloud" for the Day "Tomorrow+2"</span>
+							<div class='pre'><textarea>org.junit.ComparisonFailure: Expected Weather Forcast is matching with the actual forcast expected:<[Light Cloud]> but was:<[ Light Rain]>
+	at org.junit.Assert.assertEquals(Assert.java:115)
+	at StepDefinitions.WeatherStepDefs.i_verify_the_expected_weather_for_the_Day(WeatherStepDefs.java:97)
+	at ✽.Then I verify the expected weather "Light Cloud" for the Day "Tomorrow+2"(Weather.feature:18)
+</textarea></div>
+					</li>
+				</ul>
+		</li>
+	</ul>
+</div>
+<div class='scenario node' test-id='33' status='pass'>
+	<div class='category-list'>
+		<span class='category label white-text'>@manual</span>
+	</div>
+	<span class='duration right label'>0h 0m 0s+575ms</span>
+	<div class='desc'>
+		<b>Scenario</b>
+		<span class="desc-text">03-To verify the MetaWeather API's response's Content-type</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='34' class='node given pass' status='pass'>
+			
+			<b>Given</b>
+			
+			<span class="bdd-step-name">Given I'm using the MetaWeather API</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='35' class='node when pass' status='pass'>
+			
+			<b>When</b>
+			
+			<span class="bdd-step-name">When I make a GET request to "/api/location/44418/"</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='36' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I verify the response code of 200</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='37' class='node and skip' status='skip'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I verify the Content-Type MetaWeather API's response is returning.</span>
+				<div class='pre'><table><tr><td>expected_content-type</td></tr><tr><td>application/json</td></tr></table></div>
+				<div class='pre'>undefined</div>
+			
+		</li>
+	</ul>
+</div>
+<div class='scenario node' test-id='38' status='pass'>
+	<div class='category-list'>
+		<span class='category label white-text'>@manual</span>
+	</div>
+	<span class='duration right label'>0h 0m 0s+809ms</span>
+	<div class='desc'>
+		<b>Scenario</b>
+		<span class="desc-text">04-To verify the MetaWeather API's response has the correct woeid</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='39' class='node given pass' status='pass'>
+			
+			<b>Given</b>
+			
+			<span class="bdd-step-name">Given I'm using the MetaWeather API</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='40' class='node when pass' status='pass'>
+			
+			<b>When</b>
+			
+			<span class="bdd-step-name">When I make a GET request to "/api/location/44418/"</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='41' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I verify the response code of 200</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='42' class='node and skip' status='skip'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I verify the woeid MetaWeather API's response is returning.</span>
+				<div class='pre'><table><tr><td>expected_woeid</td></tr><tr><td>44418</td></tr></table></div>
+				<div class='pre'>undefined</div>
+			
+		</li>
+	</ul>
+</div>
+<div class='scenario node' test-id='43' status='pass'>
+	<div class='category-list'>
+		<span class='category label white-text'>@manual</span>
+	</div>
+	<span class='duration right label'>0h 0m 0s+895ms</span>
+	<div class='desc'>
+		<b>Scenario</b>
+		<span class="desc-text">05-To verify the MetaWeather API's response has the correct City name</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='44' class='node given pass' status='pass'>
+			
+			<b>Given</b>
+			
+			<span class="bdd-step-name">Given I'm using the MetaWeather API</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='45' class='node when pass' status='pass'>
+			
+			<b>When</b>
+			
+			<span class="bdd-step-name">When I make a GET request to "/api/location/44418/"</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='46' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I verify the response code of 200</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='47' class='node and skip' status='skip'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I verify the city name MetaWeather API's response is returning.</span>
+				<div class='pre'><table><tr><td>expected_city</td></tr><tr><td>London</td></tr></table></div>
+				<div class='pre'>undefined</div>
+			
+		</li>
+	</ul>
+</div>
+<div class='scenario node' test-id='48' status='pass'>
+	<div class='category-list'>
+		<span class='category label white-text'>@manual</span>
+	</div>
+	<span class='duration right label'>0h 0m 1s+91ms</span>
+	<div class='desc'>
+		<b>Scenario</b>
+		<span class="desc-text">06-To verify the number of days of forecate MetaWeather API's response is returning</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='49' class='node given pass' status='pass'>
+			
+			<b>Given</b>
+			
+			<span class="bdd-step-name">Given I'm using the MetaWeather API</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='50' class='node when pass' status='pass'>
+			
+			<b>When</b>
+			
+			<span class="bdd-step-name">When I make a GET request to "/api/location/44418/"</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='51' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I verify the response code of 200</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='52' class='node and skip' status='skip'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I verify the  number of days of forecast MetaWeather API's is returning.</span>
+				<div class='pre'><table><tr><td>expected_no_of_days</td></tr><tr><td>6</td></tr></table></div>
+				<div class='pre'>undefined</div>
+			
+		</li>
+	</ul>
+</div>
+<div class='scenario node' test-id='53' status='pass'>
+	<div class='category-list'>
+		<span class='category label white-text'>@manual</span>
+	</div>
+	<span class='duration right label'>0h 0m 0s+609ms</span>
+	<div class='desc'>
+		<b>Scenario</b>
+		<span class="desc-text">07-To verify the Time zone in MetaWeather API's response is returning</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='54' class='node given pass' status='pass'>
+			
+			<b>Given</b>
+			
+			<span class="bdd-step-name">Given I'm using the MetaWeather API</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='55' class='node when pass' status='pass'>
+			
+			<b>When</b>
+			
+			<span class="bdd-step-name">When I make a GET request to "/api/location/44418/"</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='56' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I verify the response code of 200</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='57' class='node and skip' status='skip'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I verify the Time zone MetaWeather API's response is returning.</span>
+				<div class='pre'><table><tr><td>expected_timezone</td></tr><tr><td>Europe/London</td></tr></table></div>
+				<div class='pre'>undefined</div>
+			
+		</li>
+	</ul>
+</div>
+<div class='scenario node' test-id='58' status='pass'>
+	<div class='category-list'>
+		<span class='category label white-text'>@manual</span>
+	</div>
+	<span class='duration right label'>0h 0m 0s+515ms</span>
+	<div class='desc'>
+		<b>Scenario</b>
+		<span class="desc-text">08-To verify the MetaWeather API's response has correct location-type</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='59' class='node given pass' status='pass'>
+			
+			<b>Given</b>
+			
+			<span class="bdd-step-name">Given I'm using the MetaWeather API</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='60' class='node when pass' status='pass'>
+			
+			<b>When</b>
+			
+			<span class="bdd-step-name">When I make a GET request to "/api/location/44418/"</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='61' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I verify the response code of 200</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='62' class='node and skip' status='skip'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I verify the  location-type MetaWeather API's response is returning.</span>
+				<div class='pre'><table><tr><td>location-type</td></tr><tr><td>city</td></tr></table></div>
+				<div class='pre'>undefined</div>
+			
+		</li>
+	</ul>
+</div>
+<div class='scenario node' test-id='63' status='pass'>
+	<span class='duration right label'>0h 0m 0s+469ms</span>
+	<div class='desc'>
+		<b>Scenario</b>
+		<span class="desc-text">09-To verify the functionality when user send wrong woeid in MetaWeather API's request</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='64' class='node given pass' status='pass'>
+			
+			<b>Given</b>
+			
+			<span class="bdd-step-name">Given I'm using the MetaWeather API</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='65' class='node when pass' status='pass'>
+			
+			<b>When</b>
+			
+			<span class="bdd-step-name">When I make a GET request to "/api/location/ab1234/"</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='66' class='node then skip' status='skip'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I verify the response code in MetaWeather API's response is returning.</span>
+				<div class='pre'><table><tr><td>expected_code</td></tr><tr><td>404</td></tr></table></div>
+				<div class='pre'>undefined</div>
+			
+		</li>
+	</ul>
+</div>
+<div class='scenario node' test-id='67' status='pass'>
+	<div class='category-list'>
+		<span class='category label white-text'>@manual</span>
+	</div>
+	<span class='duration right label'>0h 0m 0s+909ms</span>
+	<div class='desc'>
+		<b>Scenario</b>
+		<span class="desc-text">10-To verify weather_state_abbr for each weather_state_name in MetaWeather API's response</span>
+	</div>
+	<ul class='steps'>
+		<li test-id='68' class='node given pass' status='pass'>
+			
+			<b>Given</b>
+			
+			<span class="bdd-step-name">Given I'm using the MetaWeather API</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='69' class='node when pass' status='pass'>
+			
+			<b>When</b>
+			
+			<span class="bdd-step-name">When I make a GET request to "/api/location/44418/"</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='70' class='node then pass' status='pass'>
+			
+			<b>Then</b>
+			
+			<span class="bdd-step-name">Then I verify the response code of 200</span>
+				<div class='pre'>passed</div>
+			
+		</li>
+		<li test-id='71' class='node and skip' status='skip'>
+			
+			<b>And</b>
+			
+			<span class="bdd-step-name">And I verify weather_state_abbr for each weather_state_name in MetaWeather API's is returning.</span>
+				<div class='pre'><table><tr><td>weather_state_name</td><td>weather_state_abbr</td></tr><tr><td>Heavy Rain</td><td>hr</td></tr><tr><td>Light Rain</td><td>lr</td></tr><tr><td>Heavy Cloud</td><td>hc</td></tr><tr><td>Clear</td><td>c</td></tr><tr><td>Shower</td><td>s</td></tr></table></div>
+				<div class='pre'>undefined</div>
+			
+		</li>
+	</ul>
+</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- subview left -->
+
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<h5 class='test-name'></h5>
+
+			<div id='step-filters' class="right">
+				<span class="blue-text" status="info" alt="info" title="info"><i class="material-icons">info_outline</i></span>
+				<span class="green-text" status="pass" alt="pass" title="pass"><i class="material-icons">check_circle</i></span>
+				<span class="red-text" status="fail" alt="fail" title="fail"><i class="material-icons">cancel</i></span>
+				<span class="red-text text-darken-4" status="fatal" alt="fatal" title="fatal"><i class="material-icons">cancel</i></span>
+				<span class="pink-text text-lighten-1" status="error" alt="error" title="error"><i class="material-icons">error</i></span>
+				<span class="orange-text" alt="warning" status="warning" title="warning"><i class="material-icons">warning</i></span>
+				<span class="teal-text" status="skip" alt="skip" title="skip"><i class="material-icons">redo</i></span>
+				<span status="clear" alt="Clear filters" title="Clear filters"><i class="material-icons">clear</i></span>
+			</div>
+		</div>
+	</div>
+	<!-- subview right -->
+
+</div>
+<!-- test view -->
+<div id='category-view' class='view hide'>
+
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+					<i class='material-icons'>search</i> Search
+				</a>
+				
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+				
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+
+	<div class='subview-left left'>
+		
+		<div class='view-summary'>
+			<h5>Categories</h3>
+			<ul id='category-collection' class='category-collection'>
+				
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@apiTesting</span>
+						<span class='category-status right'>
+							<span class='label fail'>5</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							
+							<span class='label red lighten-1 white-text'>Failed: 5</span>
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Oct 24, 2019 09:51:28 AM</td>
+										<td class='linked' test-id='1'>MetaWeather API Testing</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+									<tr>
+										<td>Oct 24, 2019 09:51:32 AM</td>
+										<td class='linked' test-id='9'>MetaWeather API Testing.02-To verify the weather forcast for next few days for London.02-To verify the weather forcast for next few days for London</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+									<tr>
+										<td>Oct 24, 2019 09:51:32 AM</td>
+										<td class='linked' test-id='15'>MetaWeather API Testing.02-To verify the weather forcast for next few days for London.02-To verify the weather forcast for next few days for London</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+									<tr>
+										<td>Oct 24, 2019 09:51:33 AM</td>
+										<td class='linked' test-id='21'>MetaWeather API Testing.02-To verify the weather forcast for next few days for London.02-To verify the weather forcast for next few days for London</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+									<tr>
+										<td>Oct 24, 2019 09:51:34 AM</td>
+										<td class='linked' test-id='27'>MetaWeather API Testing.02-To verify the weather forcast for next few days for London.02-To verify the weather forcast for next few days for London</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@automated</span>
+						<span class='category-status right'>
+							<span class='label fail'>5</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							
+							<span class='label red lighten-1 white-text'>Failed: 5</span>
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Oct 24, 2019 09:51:28 AM</td>
+										<td class='linked' test-id='2'>MetaWeather API Testing.01-To verify the weather forcast for London for today</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+									<tr>
+										<td>Oct 24, 2019 09:51:32 AM</td>
+										<td class='linked' test-id='9'>MetaWeather API Testing.02-To verify the weather forcast for next few days for London.02-To verify the weather forcast for next few days for London</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+									<tr>
+										<td>Oct 24, 2019 09:51:32 AM</td>
+										<td class='linked' test-id='15'>MetaWeather API Testing.02-To verify the weather forcast for next few days for London.02-To verify the weather forcast for next few days for London</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+									<tr>
+										<td>Oct 24, 2019 09:51:33 AM</td>
+										<td class='linked' test-id='21'>MetaWeather API Testing.02-To verify the weather forcast for next few days for London.02-To verify the weather forcast for next few days for London</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+									<tr>
+										<td>Oct 24, 2019 09:51:34 AM</td>
+										<td class='linked' test-id='27'>MetaWeather API Testing.02-To verify the weather forcast for next few days for London.02-To verify the weather forcast for next few days for London</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@manual</span>
+						<span class='category-status right'>
+							<span class='label pass'>7</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 7</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Oct 24, 2019 09:51:34 AM</td>
+										<td class='linked' test-id='33'>MetaWeather API Testing.03-To verify the MetaWeather API's response's Content-type</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Oct 24, 2019 09:51:35 AM</td>
+										<td class='linked' test-id='38'>MetaWeather API Testing.04-To verify the MetaWeather API's response has the correct woeid</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Oct 24, 2019 09:51:36 AM</td>
+										<td class='linked' test-id='43'>MetaWeather API Testing.05-To verify the MetaWeather API's response has the correct City name</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Oct 24, 2019 09:51:37 AM</td>
+										<td class='linked' test-id='48'>MetaWeather API Testing.06-To verify the number of days of forecate MetaWeather API's response is returning</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Oct 24, 2019 09:51:38 AM</td>
+										<td class='linked' test-id='53'>MetaWeather API Testing.07-To verify the Time zone in MetaWeather API's response is returning</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Oct 24, 2019 09:51:38 AM</td>
+										<td class='linked' test-id='58'>MetaWeather API Testing.08-To verify the MetaWeather API's response has correct location-type</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Oct 24, 2019 09:51:39 AM</td>
+										<td class='linked' test-id='67'>MetaWeather API Testing.10-To verify weather_state_abbr for each weather_state_name in MetaWeather API's response</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+
+			</ul>
+		</div>
+	</div>
+
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<h5 class='category-name'></h5>
+		</div>
+	</div>
+</div>
+<!-- category view -->
+<div id='exception-view' class='view hide'>
+
+    <section id='controls'>
+        <div class='controls grey lighten-4'>
+            <!-- search -->
+            <div class='chip transparent' alt='Search Tests' title='Search Tests'>
+                <a href="#" class='search-div'>
+                    <i class='material-icons'>search</i> Search
+                </a>
+
+                <div class='input-field left hide'>
+                    <input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+                </div>
+
+            </div>
+            <!-- search -->
+        </div>
+    </section>
+
+    <div class='subview-left left'>
+
+        <div class='view-summary'>
+            <h5>Exceptions</h3>
+                <ul id='exception-collection' class='exception-collection'>
+
+                        <li class='exception displayed active'>
+                            <div class='exception-heading'>
+                                <span class='exception-name'>org.junit.ComparisonFailure</span>
+                                <span class='exception-count right'><span class='label red lighten-1 white-text'>5</span></span>
+                            </div>
+                            <div class='exception-content hide'>
+                                <div class='exception-tests'>
+                                    <table class='bordered table-results'>
+                                        <thead>
+                                        <tr>
+                                            <th>Timestamp</th>
+                                            <th>TestName</th>
+                                            <th>Status</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                                    <tr>
+                                                        <td>Oct 24, 2019 09:51:32 AM</td>
+                                                        <td class='linked' test-id='7'>MetaWeather API Testing.01-To verify the weather forcast for London for today.Then I verify the expected weather "Showers" for the Day "Today"</td>
+                                                        <td><pre><textarea>org.junit.ComparisonFailure: Expected Weather Forcast is matching with the actual forcast expected:<[Showers]> but was:<[Heavy Rain]>
+	at org.junit.Assert.assertEquals(Assert.java:115)
+	at StepDefinitions.WeatherStepDefs.i_verify_the_expected_weather_for_the_Day(WeatherStepDefs.java:97)
+	at ✽.Then I verify the expected weather "Showers" for the Day "Today"(Weather.feature:10)
+</textarea></pre></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Oct 24, 2019 09:51:32 AM</td>
+                                                        <td class='linked' test-id='14'>MetaWeather API Testing.02-To verify the weather forcast for next few days for London.02-To verify the weather forcast for next few days for London.Then I verify the expected weather "Heavy Cloud" for the Day "Today"</td>
+                                                        <td><pre><textarea>org.junit.ComparisonFailure: Expected Weather Forcast is matching with the actual forcast expected:<Heavy [Cloud]> but was:<Heavy [Rain]>
+	at org.junit.Assert.assertEquals(Assert.java:115)
+	at StepDefinitions.WeatherStepDefs.i_verify_the_expected_weather_for_the_Day(WeatherStepDefs.java:97)
+	at ✽.Then I verify the expected weather "Heavy Cloud" for the Day "Today"(Weather.feature:18)
+</textarea></pre></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Oct 24, 2019 09:51:33 AM</td>
+                                                        <td class='linked' test-id='20'>MetaWeather API Testing.02-To verify the weather forcast for next few days for London.02-To verify the weather forcast for next few days for London.Then I verify the expected weather "Showers" for the Day "Tomorrow"</td>
+                                                        <td><pre><textarea>org.junit.ComparisonFailure: Expected Weather Forcast is matching with the actual forcast expected:<[Showers]> but was:<[ Light Rain]>
+	at org.junit.Assert.assertEquals(Assert.java:115)
+	at StepDefinitions.WeatherStepDefs.i_verify_the_expected_weather_for_the_Day(WeatherStepDefs.java:97)
+	at ✽.Then I verify the expected weather "Showers" for the Day "Tomorrow"(Weather.feature:18)
+</textarea></pre></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Oct 24, 2019 09:51:34 AM</td>
+                                                        <td class='linked' test-id='26'>MetaWeather API Testing.02-To verify the weather forcast for next few days for London.02-To verify the weather forcast for next few days for London.Then I verify the expected weather "Clear" for the Day "Tomorrow+1"</td>
+                                                        <td><pre><textarea>org.junit.ComparisonFailure: Expected Weather Forcast is matching with the actual forcast expected:<[Clear]> but was:<[ Light Rain]>
+	at org.junit.Assert.assertEquals(Assert.java:115)
+	at StepDefinitions.WeatherStepDefs.i_verify_the_expected_weather_for_the_Day(WeatherStepDefs.java:97)
+	at ✽.Then I verify the expected weather "Clear" for the Day "Tomorrow+1"(Weather.feature:18)
+</textarea></pre></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Oct 24, 2019 09:51:34 AM</td>
+                                                        <td class='linked' test-id='32'>MetaWeather API Testing.02-To verify the weather forcast for next few days for London.02-To verify the weather forcast for next few days for London.Then I verify the expected weather "Light Cloud" for the Day "Tomorrow+2"</td>
+                                                        <td><pre><textarea>org.junit.ComparisonFailure: Expected Weather Forcast is matching with the actual forcast expected:<[Light Cloud]> but was:<[ Light Rain]>
+	at org.junit.Assert.assertEquals(Assert.java:115)
+	at StepDefinitions.WeatherStepDefs.i_verify_the_expected_weather_for_the_Day(WeatherStepDefs.java:97)
+	at ✽.Then I verify the expected weather "Light Cloud" for the Day "Tomorrow+2"(Weather.feature:18)
+</textarea></pre></td>
+                                                    </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </li>
+                </ul>
+        </div>
+    </div>
+
+    <div class='subview-right left'>
+        <div class='view-summary'>
+            <h5 class='exception-name'></h5>
+        </div>
+    </div>
+</div>
+<!-- exception view -->
+<div id='dashboard-view' class='view hide'>
+	<div class='card-panel transparent np-v'>
+		<h5>Dashboard</h5>
+
+		<div class='row'>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Features
+					<div class='panel-lead'>1</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Scenarios
+					<div class='panel-lead'>13</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Steps
+					<div class='panel-lead'>56</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Start
+					<div class='panel-lead'>Oct 24, 2019 09:51:28 AM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+			 		End
+			 		<div class='panel-lead'>Oct 24, 2019 09:51:40 AM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Time Taken
+					<div class='panel-lead'>12,114ms</div>
+				</div>
+			</div>
+			<div class='col s6'>
+				<div class='card-panel dashboard-categories'>
+					<span class='right label cyan white-text'>Categories</span><p>&nbsp;</p>
+					
+					<table>
+						<tr>
+							<th>Name</th>
+							<th>Passed</th>
+							<th>Failed</th>
+							<th>Others</th>
+							<th>Passed %</th>
+						</tr>
+						<tr>
+							<td>@apiTesting</td>
+							<td>0</td>
+							<td>5</td>
+							<td>0</td>
+							<td>
+									0%
+							</td>
+						</tr>
+						<tr>
+							<td>@automated</td>
+							<td>0</td>
+							<td>5</td>
+							<td>0</td>
+							<td>
+									0%
+							</td>
+						</tr>
+						<tr>
+							<td>@manual</td>
+							<td>7</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- dashboard view -->
+<!-- testrunner-logs view -->
+		</div>
+		<!-- container -->
+
+		<script>
+			var statusGroup = {
+				passParent: 0,
+				failParent: 1,
+				fatalParent: 0,
+				errorParent: 0,
+				warningParent: 0,
+				skipParent: 0,
+				exceptionsParent: 1,
+				
+				passChild: 8,
+				failChild: 5,
+				fatalChild: 0,
+				errorChild: 0,
+				warningChild: 0,
+				skipChild: 0,
+				infoChild: 0,
+				exceptionsChild: 5,
+				
+				passGrandChild: 43,
+				failGrandChild: 5,
+				fatalGrandChild: 0,
+				errorGrandChild: 0,
+				warningGrandChild: 0,
+				skipGrandChild: 8,
+				infoGrandChild: 0,
+				exceptionsGrandChild: 13,
+			};
+		</script>
+		
+			<script src='https://cdn.rawgit.com/anshooarora/extentreports-java/fca20fb7653aade98810546ab96a2a4360e3e712/dist/js/extent.js' type='text/javascript'></script>
+		
+		
+ 		<script type='text/javascript'>
+ 			
+      
+        $(document).ready(function() {
+        
+        });
+      
+    
+ 		</script>
+	</body>
+	
+</html>
